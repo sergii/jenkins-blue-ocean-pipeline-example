@@ -6,6 +6,11 @@ pipeline {
         echo 'Code is OK'
       }
     }
+    stage('Unit tests') {
+      steps {
+        echo 'Test are OK'
+      }
+    }
   }
   environment {
     Test = '2'
