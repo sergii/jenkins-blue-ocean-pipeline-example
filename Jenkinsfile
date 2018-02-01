@@ -12,6 +12,15 @@ pipeline {
       }
     }
     stage('Integration tests') {
+      agent {
+        node {
+          label 'alpha'
+        }
+        
+      }
+      environment {
+        alpha = 'alpha'
+      }
       steps {
         timeout(time: 4) {
           echo 'Integration'
