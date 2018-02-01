@@ -11,6 +11,14 @@ pipeline {
         echo 'Test are OK'
       }
     }
+    stage('Integration tests') {
+      steps {
+        timeout(time: 4) {
+          echo 'Integration'
+        }
+        
+      }
+    }
   }
   environment {
     Test = '2'
