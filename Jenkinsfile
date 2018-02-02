@@ -11,23 +11,37 @@ pipeline {
         echo 'Test are OK'
       }
     }
-    stage('Availability') {
+    stage('Databases') {
       parallel {
-        stage('Databases') {
+        stage('Ping') {
           steps {
             sleep 1
           }
         }
-        stage('Services') {
+        stage('Connection') {
           steps {
             sleep 1
           }
         }
       }
     }
-    stage('Integration tests') {
-      steps {
-        echo 'Integration tests...'
+    stage('Services') {
+      parallel {
+        stage('internal') {
+          steps {
+            sleep 1
+          }
+        }
+        stage('external') {
+          steps {
+            sleep 1
+          }
+        }
+        stage('3rd party') {
+          steps {
+            sleep 1
+          }
+        }
       }
     }
   }
