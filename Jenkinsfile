@@ -1,7 +1,7 @@
 pipeline {
   agent none
   stages {
-    stage('Check code quality') {
+    stage('Code quality') {
       steps {
         echo 'Code is OK'
       }
@@ -11,13 +11,8 @@ pipeline {
         echo 'Test are OK'
       }
     }
-    stage('Integration tests') {
+    stage('Availability') {
       parallel {
-        stage('Service Availability') {
-          steps {
-            echo 'Checking Third Party Services Availability'
-          }
-        }
         stage('Databases') {
           steps {
             sleep 1
@@ -28,6 +23,11 @@ pipeline {
             sleep 1
           }
         }
+      }
+    }
+    stage('Integration tests') {
+      steps {
+        echo 'Integration tests...'
       }
     }
   }
