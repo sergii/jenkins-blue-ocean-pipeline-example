@@ -18,26 +18,9 @@ pipeline {
     }
     stage('Integration tests') {
       parallel {
-        stage('Integration tests') {
-          agent {
-            node {
-              label 'alpha'
-            }
-            
-          }
-          environment {
-            alpha = 'alpha'
-          }
+        stage('Service Availability') {
           steps {
-            timeout(time: 4) {
-              echo 'Integration'
-            }
-            
-          }
-        }
-        stage('Availability') {
-          steps {
-            sleep 1
+            echo 'Checking Third Party Services Availability'
           }
         }
         stage('Databases') {
