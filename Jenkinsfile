@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'test'
-    }
-    
-  }
+  agent none
   stages {
     stage('Check code quality') {
       steps {
@@ -35,8 +30,5 @@ pipeline {
         }
       }
     }
-  }
-  environment {
-    Test = '2'
   }
 }
