@@ -44,5 +44,10 @@ pipeline {
         }
       }
     }
+    stage('Integration tests') {
+      steps {
+        sleep 1
+      }
+    }
   }
 }
