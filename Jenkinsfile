@@ -13,12 +13,12 @@ pipeline {
     }
     stage('Databases') {
       parallel {
-        stage('Ping') {
+        stage('Connection') {
           steps {
             sleep 1
           }
         }
-        stage('Connection') {
+        stage('Ping') {
           steps {
             sleep 1
           }
